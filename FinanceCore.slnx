@@ -1,2 +1,8 @@
 <Solution>
+  <Folder Name="/Modules/">
+    <Project Path="src/FinanceCore.Shareds/FinanceCore.Shareds.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="tests/FinanceCore.Shareds.Tests/FinanceCore.Shareds.Tests.csproj" />
+  </Folder>
 </Solution>
