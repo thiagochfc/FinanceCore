@@ -3,6 +3,11 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
+  <!-- Projects -->
+  <ItemGroup Label="Projects">
+    <PackageVersion Include="Moonad" Version="5.5.1"/>
+  </ItemGroup>
+  
   <!-- Tests -->
   <ItemGroup Label="Testing">
     <PackageVersion Include="coverlet.collector" Version="6.0.4"/>

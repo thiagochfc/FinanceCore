@@ -1,5 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <PackageReference Include="Moonad"/>
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\FinanceCore.Shareds\FinanceCore.Shareds.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>FinanceCore.Payables.Tests</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
 </Project>
