@@ -8,6 +8,8 @@ public sealed partial class Money : ValueObject
 
     public decimal Amount { get; }
     public Currency Currency { get; }
+    public bool IsZero =>
+        Amount == 0;
 
     private Money(decimal amount, Currency currency)
     {
@@ -53,9 +55,6 @@ public sealed partial class Money : ValueObject
         MoneyExceptions.ThrowIfDifferentCurrency(this, other);
         return Amount > other.Amount;
     }
-
-    public bool IsZero() =>
-        Amount == 0;
 
     protected override IReadOnlyList<object?> GetEqualityComponents() =>
         [Amount, Currency];
