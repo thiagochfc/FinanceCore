@@ -12,7 +12,7 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
     public DueDate DueDate { get; }
     public Money OriginalAmount { get; }
     public Money PaidAmount { get; private set; }
-    public PayableStatus Status { get; private set; }
+    public PayableInstallmentStatus InstallmentStatus { get; private set; }
     public Money RemainingAmount => OriginalAmount.Subtract(PaidAmount);
 
     private PayableInstallment(PayableInstallmentId id,
@@ -20,13 +20,13 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
         DueDate dueDate,
         Money originalAmount,
         Money paidAmount,
-        PayableStatus status) : base(id)
+        PayableInstallmentStatus installmentStatus) : base(id)
     {
         Number = number;
         DueDate = dueDate;
         OriginalAmount = originalAmount;
         PaidAmount = paidAmount;
-        Status = status;
+        InstallmentStatus = installmentStatus;
     }
 
     internal static Result<PayableInstallment, IError> Create(int number, DueDate dueDate, Money amount)
@@ -45,7 +45,7 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
         }
 
         PayableInstallment payableInstallment = new(PayableInstallmentId.New(), number, dueDate, amount,
-            Money.Zero(amount.Currency), PayableStatus.Pending);
+            Money.Zero(amount.Currency), PayableInstallmentStatus.Pending);
 
         return payableInstallment;
     }
@@ -57,7 +57,7 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
         ArgumentNullException.ThrowIfNull(latePaymentCharges);
         ArgumentNullException.ThrowIfNull(holidays);
 
-        if (!Status.CanPay)
+        if (!InstallmentStatus.CanPay)
         {
             return new StatusNotAllowedError();
         }
@@ -78,20 +78,20 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
 
         PaidAmount = PaidAmount.Add(amount);
 
-        PayableStatus newStatus = RemainingAmount.IsZero ? PayableStatus.Paid : PayableStatus.PartiallyPaid;
-        Status = newStatus;
+        PayableInstallmentStatus newInstallmentStatus = RemainingAmount.IsZero ? PayableInstallmentStatus.Paid : PayableInstallmentStatus.PartiallyPaid;
+        InstallmentStatus = newInstallmentStatus;
 
         return Result<IError>.Ok();
     }
 
     internal Result<IError> Cancel()
     {
-        if (!Status.CanCancel)
+        if (!InstallmentStatus.CanCancel)
         {
             return new StatusNotAllowedError();
         }
 
-        Status = PayableStatus.Cancelled;
+        InstallmentStatus = PayableInstallmentStatus.Cancelled;
         
         return Result<IError>.Ok();
     }
