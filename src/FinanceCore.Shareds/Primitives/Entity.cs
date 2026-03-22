@@ -36,7 +36,7 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>> where TId : notnull
         HashCode.Combine(GetType(), Id);
 
     public static bool operator ==(Entity<TId>? left, Entity<TId>? right) =>
-        left?.Equals(right) ?? false;
+        left?.Equals(right) ?? true;
 
     public static bool operator !=(Entity<TId>? left, Entity<TId>? right) =>
         !(left == right);
