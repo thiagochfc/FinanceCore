@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Modules/">
+    <Project Path="src/FinanceCore.Common/FinanceCore.Common.csproj" />
     <Project Path="src/FinanceCore.Payables/FinanceCore.Payables.csproj" />
     <Project Path="src/FinanceCore.Shareds/FinanceCore.Shareds.csproj" />
   </Folder>

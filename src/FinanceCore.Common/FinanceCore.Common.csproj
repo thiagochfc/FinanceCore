@@ -1,0 +1,5 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\FinanceCore.Shareds\FinanceCore.Shareds.csproj" />
+  </ItemGroup>
+</Project>
