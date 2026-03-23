@@ -27,7 +27,7 @@ public class PayableInstallmentTests
         payableInstallment.DueDate.ShouldBe(DueDate);
         payableInstallment.OriginalAmount.ShouldBe(Amount);
         payableInstallment.PaidAmount.ShouldBe(Money.Zero(Amount.Currency));
-        payableInstallment.InstallmentStatus.ShouldBe(PayableInstallmentStatus.Pending);
+        payableInstallment.Status.ShouldBe(PayableInstallmentStatus.Pending);
         payableInstallment.RemainingAmount.ShouldBe(Amount);
     }
 
@@ -55,7 +55,7 @@ public class PayableInstallmentTests
         // Assert
         result.IsOk.ShouldBe(true);
         payableInstallment.RemainingAmount.ShouldBe(Money.Zero(Amount.Currency));
-        payableInstallment.InstallmentStatus.ShouldBe(PayableInstallmentStatus.Paid);
+        payableInstallment.Status.ShouldBe(PayableInstallmentStatus.Paid);
     }
     
     [Fact]
@@ -72,7 +72,7 @@ public class PayableInstallmentTests
         // Assert
         result.IsOk.ShouldBe(true);
         payableInstallment.RemainingAmount.ShouldBe(remainingPartiallyPaid);
-        payableInstallment.InstallmentStatus.ShouldBe(PayableInstallmentStatus.PartiallyPaid);
+        payableInstallment.Status.ShouldBe(PayableInstallmentStatus.PartiallyPaid);
     }
 
     [Theory]
@@ -126,7 +126,7 @@ public class PayableInstallmentTests
         
         // Assert
         result.IsOk.ShouldBe(true);
-        payableInstallment.InstallmentStatus.ShouldBe(PayableInstallmentStatus.Cancelled);
+        payableInstallment.Status.ShouldBe(PayableInstallmentStatus.Cancelled);
     }
     
     [Fact]

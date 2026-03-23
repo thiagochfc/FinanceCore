@@ -12,7 +12,7 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
     public DueDate DueDate { get; }
     public Money OriginalAmount { get; }
     public Money PaidAmount { get; private set; }
-    public PayableInstallmentStatus InstallmentStatus { get; private set; }
+    public PayableInstallmentStatus Status { get; private set; }
     public Money RemainingAmount => OriginalAmount.Subtract(PaidAmount);
 
     private PayableInstallment(PayableInstallmentId id,
@@ -20,13 +20,13 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
         DueDate dueDate,
         Money originalAmount,
         Money paidAmount,
-        PayableInstallmentStatus installmentStatus) : base(id)
+        PayableInstallmentStatus status) : base(id)
     {
         Number = number;
         DueDate = dueDate;
         OriginalAmount = originalAmount;
         PaidAmount = paidAmount;
-        InstallmentStatus = installmentStatus;
+        Status = status;
     }
 
     internal static Result<PayableInstallment, IError> Create(int number, DueDate dueDate, Money amount)
@@ -57,7 +57,7 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
         ArgumentNullException.ThrowIfNull(latePaymentCharges);
         ArgumentNullException.ThrowIfNull(holidays);
 
-        if (!InstallmentStatus.CanPay)
+        if (!Status.CanPay)
         {
             return new StatusNotAllowedError();
         }
@@ -79,19 +79,19 @@ public sealed class PayableInstallment : Entity<PayableInstallmentId>
         PaidAmount = PaidAmount.Add(amount);
 
         PayableInstallmentStatus newInstallmentStatus = RemainingAmount.IsZero ? PayableInstallmentStatus.Paid : PayableInstallmentStatus.PartiallyPaid;
-        InstallmentStatus = newInstallmentStatus;
+        Status = newInstallmentStatus;
 
         return Result<IError>.Ok();
     }
 
     internal Result<IError> Cancel()
     {
-        if (!InstallmentStatus.CanCancel)
+        if (!Status.CanCancel)
         {
             return new StatusNotAllowedError();
         }
 
-        InstallmentStatus = PayableInstallmentStatus.Cancelled;
+        Status = PayableInstallmentStatus.Cancelled;
         
         return Result<IError>.Ok();
     }
