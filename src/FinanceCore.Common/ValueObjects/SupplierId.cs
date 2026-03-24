@@ -1,6 +1,6 @@
 using FinanceCore.Shareds.Primitives;
 
-namespace FinanceCore.Common;
+namespace FinanceCore.Common.ValueObjects;
 
 public sealed class SupplierId : ValueObject
 {

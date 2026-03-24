@@ -1,8 +1,11 @@
 using System.Collections;
 
+using FinanceCore.Common.ValueObjects;
 using FinanceCore.Payables.ValueObjects;
 
 using Moonad;
+
+using Money = FinanceCore.Common.ValueObjects.Money;
 
 namespace FinanceCore.Payables.Entities;
 

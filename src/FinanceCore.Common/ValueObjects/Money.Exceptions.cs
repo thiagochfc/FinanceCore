@@ -1,6 +1,6 @@
 using FinanceCore.Shareds.Errors;
 
-namespace FinanceCore.Payables.ValueObjects;
+namespace FinanceCore.Common.ValueObjects;
 
 public sealed partial class Money
 {

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using FinanceCore.Shareds.Errors;
 using FinanceCore.Shareds.Primitives;
 
-namespace FinanceCore.Payables.ValueObjects;
+namespace FinanceCore.Common.ValueObjects;
 
 public sealed partial class DocumentNumber : ValueObject
 {

@@ -5,6 +5,7 @@
     <Project Path="src/FinanceCore.Shareds/FinanceCore.Shareds.csproj" />
   </Folder>
   <Folder Name="/Tests/">
+    <Project Path="tests/FinanceCore.Common.Tests/FinanceCore.Common.Tests.csproj" />
     <Project Path="tests/FinanceCore.Payables.Tests/FinanceCore.Payables.Tests.csproj" />
     <Project Path="tests/FinanceCore.Shareds.Tests/FinanceCore.Shareds.Tests.csproj" />
   </Folder>

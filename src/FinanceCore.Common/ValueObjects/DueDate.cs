@@ -1,7 +1,7 @@
 using FinanceCore.Shareds.Errors;
 using FinanceCore.Shareds.Primitives;
 
-namespace FinanceCore.Payables.ValueObjects;
+namespace FinanceCore.Common.ValueObjects;
 
 public sealed class DueDate : ValueObject
 {

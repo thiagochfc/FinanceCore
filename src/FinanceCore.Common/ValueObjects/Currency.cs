@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 
 using FinanceCore.Shareds.Primitives;
 
-namespace FinanceCore.Payables.ValueObjects;
+namespace FinanceCore.Common.ValueObjects;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public sealed class Currency : ValueObject

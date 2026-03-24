@@ -1,3 +1,4 @@
+using FinanceCore.Common.ValueObjects;
 using FinanceCore.Payables.ValueObjects;
 using FinanceCore.Shareds.Errors;
 using FinanceCore.Shareds.Primitives;

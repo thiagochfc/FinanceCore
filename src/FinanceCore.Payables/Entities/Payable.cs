@@ -1,4 +1,4 @@
-using FinanceCore.Common;
+using FinanceCore.Common.ValueObjects;
 using FinanceCore.Payables.Events;
 using FinanceCore.Payables.ValueObjects;
 using FinanceCore.Shareds.Errors;

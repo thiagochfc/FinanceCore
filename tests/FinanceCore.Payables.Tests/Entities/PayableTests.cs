@@ -1,6 +1,6 @@
 using System.Globalization;
 
-using FinanceCore.Common;
+using FinanceCore.Common.ValueObjects;
 using FinanceCore.Payables.Entities;
 using FinanceCore.Payables.Events;
 using FinanceCore.Payables.ValueObjects;

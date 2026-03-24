@@ -1,10 +1,10 @@
 using System.Globalization;
 
-using FinanceCore.Payables.ValueObjects;
+using FinanceCore.Common.ValueObjects;
 
 using Shouldly;
 
-namespace FinanceCore.Payables.Tests.ValueObjects;
+namespace FinanceCore.Common.Tests.ValueObjects;
 
 public class MoneyTests
 {
