@@ -7,9 +7,7 @@ public sealed class PayableInstallmentStatus : ValueObject
     public static readonly PayableInstallmentStatus Pending = new(nameof(Pending), true, true);
     public static readonly PayableInstallmentStatus PartiallyPaid = new(nameof(PartiallyPaid), true, false);
     public static readonly PayableInstallmentStatus Paid = new(nameof(Paid), false, false);
-    public static readonly PayableInstallmentStatus Overdue = new(nameof(Overdue), true, false);
     public static readonly PayableInstallmentStatus Cancelled = new(nameof(Cancelled), false, false);
-    public static readonly PayableInstallmentStatus Renegotiated = new(nameof(Renegotiated), true, false);
 
     public string Value { get; }
     public bool CanPay { get; }

@@ -4,6 +4,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\FinanceCore.Common\FinanceCore.Common.csproj" />
     <ProjectReference Include="..\FinanceCore.Shareds\FinanceCore.Shareds.csproj" />
   </ItemGroup>
 
